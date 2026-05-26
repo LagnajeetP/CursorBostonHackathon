@@ -11,6 +11,32 @@ cites real numbers and refuses to invent stats.
 
 ---
 
+## Overview
+
+The number one threat to a basketball player's career is injury — promising careers are
+cut short every year because warning signs in the body (rising soreness, dropping HRV,
+poor sleep, accumulating load) get lost in the noise of a season and potential is never
+fully met. The second threat, quieter but just as costly, is poor optimization of
+improvement: practice plans are written from gut feel and yesterday's game tape, with no
+systematic link between what a player did this week and what they should work on next.
+**Hoops AI** is a coach console that solves both problems at once by combining a player's
+intake / medical history, multi-week health signals, recent game stat lines, and live
+session notes into a single grounded view, then asking Claude to read all of that as a
+strict source-of-truth context block. After every session the coach writes notes and logs
+metrics — shots, sprints, HR, RPE, pain flags — and a fast Claude (Haiku) pass returns a
+short, cited recommendation: today's headline, three specific focus areas for next
+practice, and an explicit injury-caution bullet if the data warrants it. Opening the
+Insights tab triggers a deeper Claude (Sonnet) analysis that produces strengths,
+weaknesses, load/health signals, injury caution, and a recommended next three sessions,
+all grounded in the player's own numbers via a lightweight RAG retrieval over their SQLite
+rows. Every session is persisted and stacks into a session feed with trend charts (RPE,
+FG%, sleep, HRV, soreness) so a coach can see at a glance whether a player is trending
+toward peak or toward breakdown. The goal is simple: protect careers from injury and
+compress the time between *"something is off"* and *"here is exactly what to do about it,"*
+so potential is actually realized instead of left on the floor.
+
+---
+
 ## Architecture
 
 ```
